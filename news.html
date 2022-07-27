@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>知识迭代学院</title>
+	<meta
+  name="description"
+  content="知识迭代学院分析钢琴弹唱及动画制作为载体的个人网站,希望大家每天都学到新的知识。"
+/>
+<meta
+  name="keywords"
+  content="钢琴弹唱,动画制作"
+/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?44258988bf7a2658012e901bfb7da76c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<style>
+	.m-main-new-list li{
+		overflow: hidden;
+		margin-bottom: 30px;
+		
+	}
+	.m-main-new-list img{
+		float: left;
+		margin-right: 20px;
+	}
+	.line{
+		height: 30px;
+	}
+	.m-main-new-list-box{
+		display: inline-table;
+		width: 600px;
+		height: 200px;
+	}
+	
+	.m-main-new-list-box p:nth-child(1){
+		padding-top: 10px;
+		font-size: 18px;
+		margin-bottom: 10px;
+		font-weight: bold;
+		color: #333;
+	}
+	.m-main-new-list-box p:nth-child(2){
+		color: #666;
+		font-size: 14px;
+		margin-bottom: 20px;
+		line-height: 25px;
+		text-indent: 20px;
+	}
+	.m-main-new-list-box p:nth-child(3){
+		color: #666;
+		font-size: 14px;
+	}
+	.m-main-new-list a {
+		color:#666;
+	}
+</style>
+<body>
+
+	<div class="tc">
+		<img src="images/sl.gif">
+	</div>
+	<div class="zzc">
+	</div>
+
+	<div class="set">
+	
+	</div>
+	
+	<div class="container">
+		<div class="h-banner-bg">
+			<div class="h-banner">
+				<div class="h-logo">
+					<img src="images/logo.png" />
+				</div>
+				<div class="h-nav">
+					<ul>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="courseList.html">课程列表</a></li>
+						<li><a href="news.html" class="active">文章资讯</a></li>
+						<li><a href="download.html">资源下载</a></li>
+						<li class="yzp-btn"><a href="#">原创谱系统</a></li>
+						<li><a href="https://www.ixigua.com/home/91655034459?list_entrance=anyVideo">更多</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="m-main-bg">
+			<div class="m-main">
+				<div class="m-main-title">文章资讯</div>
+				<div class="m-main-new-list">
+					<ul>
+						<!-- <li>
+							<a href="newsDetails.html">
+								<img src="images/cp01.png" width="262" height="200">
+								<div class="m-main-new-list-box">
+									<p>如何把五线谱转为简谱</p>
+									<p>我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue我们需要先安装overtrue</p>
+									<p><span class="data">2020-12-03</span></p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="newsDetails.html">
+								<img src="images/cp01.png" width="262" height="200">
+								<div class="m-main-new-list-box">
+									<p>如何把五线谱转为简谱</p>
+									<p>我们需要先安装overtrue</p>
+									<p><span class="data">2020-12-03</span></p>
+								</div>
+							</a>
+						</li> -->
+					</ul>
+				</div>
+				<div class="div-page">
+					<ul>
+						<li>首页</li>
+						<li class="active">1</li>
+<!--
+						<li>2</li>
+						<li>3</li>
+-->
+						<li>尾页</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="embellish">
+			
+		</div>
+		<div class="f-footer-bg">
+			<p>知识迭代学院 CopyRight&copy;2022 All Right Reserved</p>
+		</div>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script src="data/course.json"></script>
+	<script src="js/tool.js"></script>
+	<script>
+	
+		var ele = ".m-main-new-list";
+		dataList()
+		function dataList() {
+				$.ajax({
+					url: "data/news.json",
+					type: "get",
+					data: {},
+					success: function (data) {
+						var json = data.data;
+
+						var html = "";
+						if(json.length!=0){
+							//回显数据
+							html+='<ul>'
+							for(var i=0; i<json.length;i++){
+								html+='<li>'
+									html+='<a href="newsDetails.html?id='+json[i].news_id+'">'
+										html+='<img src="'+json[i].news_img_url+'" width="262" height="200">'
+										html+='<div class="m-main-new-list-box">'
+										html+='<p>'+json[i].news_name+'</p>'
+										html+='<p>'+json[i].news_info+'</p>'
+										html+='<p><span class="data">'+json[i].createDate+'</span></p>'
+										html+='</div>'
+										html+='</a>'
+								html+='</li>'
+							}
+							html+='</ul>'
+
+						}else{
+							html+='<div class="noData">暂无数据</div>'
+						}
+
+						$(ele).html(html);
+					}
+		})
+	}
+	</script>
+</body>
+</html>
